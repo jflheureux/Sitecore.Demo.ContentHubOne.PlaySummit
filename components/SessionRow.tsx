@@ -31,6 +31,14 @@ const SessionRow = (props: SessionRowProps): JSX.Element => {
       </div>
       <div className="session-content">
         <div className="session-name">{props.session.name}</div>
+        {props?.session?.speakers?.length && (
+          <div>
+            Speaker{props.session.speakers.length > 1 ? 's' : ''}:&nbsp;
+            {props.session.speakers.map((speaker) => (
+              <span key={speaker}>{speaker}</span>
+            ))}
+          </div>
+        )}
         <div>{props.session.room}</div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 export interface Room {
   id: string;
-  name: string;
+  roomName: string;
 }
 
 export interface RoomResults {

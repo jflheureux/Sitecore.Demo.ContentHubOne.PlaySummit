@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/* 1. Tailwind base styles */
+
+@import 'tailwindcss/base';
+
+/* 2. Our styles */
+
+@import './base/typography.css';
+@import './layout/buttons.css';
+@import './layout/frame.css';
+@import './layout/HeroSection.css';
+@import './layout/navigation.css';
+@import './layout/schedule.css';
+
+/* 3. Tailwind components and utilities */
+
+/* Specifically importing after our components to mimic Tailwind v2 file creation */
+
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';

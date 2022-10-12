@@ -34,6 +34,17 @@ query {
 }
 `;
 
+const getStartTime = (timeslot: string): number => {
+  let startHour = parseInt(timeslot.slice(0, 2));
+  const amOrPm = timeslot.slice(5, 7).toUpperCase();
+
+  if (startHour === 12) {
+    startHour = 0;
+  }
+
+  return amOrPm === 'AM' ? startHour : startHour + 12;
+};
+
 export const getAllSessions = async (): Promise<{ sessions: Session[] }> => {
   const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
   const sessions: Session[] = [];
@@ -53,5 +64,12 @@ export const getAllSessions = async (): Promise<{ sessions: Session[] }> => {
     });
   });
 
-  return { sessions };
+  return {
+    sessions: sessions.sort((a, b) => {
+      if (a.day !== b.day) {
+        return a.day - b.day;
+      }
+      return getStartTime(a.timeslot) >= getStartTime(b.timeslot) ? 1 : -1;
+    }),
+  };
 };

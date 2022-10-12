@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Session } from '../interfaces/session';
-import { contentHubImageSrcGeneratorFromString } from '../utilities/contentHubImageLoader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCalendar,
@@ -11,7 +10,7 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
-type ScheduleDetailsProps = {
+type SessionDetailsProps = {
   sessions: Session[];
 };
 
@@ -19,7 +18,7 @@ const closeShowDetail = (sessionId: string) => {
   document.getElementById(sessionId)?.classList.remove('active');
 };
 
-const ScheduleDetails = (props: ScheduleDetailsProps): JSX.Element => {
+const SessionDetails = (props: SessionDetailsProps): JSX.Element => {
   return (
     <>
       {props.sessions.map((session, index) => {
@@ -36,7 +35,7 @@ const ScheduleDetails = (props: ScheduleDetailsProps): JSX.Element => {
             <div
               className="session-detail-image"
               style={{
-                backgroundImage: `url("${contentHubImageSrcGeneratorFromString(session.image)}")`,
+                backgroundImage: `url("${session.imageUrl}")`,
               }}
             >
               {session.isPremium && (
@@ -54,10 +53,10 @@ const ScheduleDetails = (props: ScheduleDetailsProps): JSX.Element => {
               <h2 className="session-name">{session.name}</h2>
               <div className="session-meta">
                 <div>
-                  {session.Day && (
+                  {session.day && (
                     <span>
                       <FontAwesomeIcon className="icon" icon={faCalendar} />
-                      {session.Day}
+                      Day {session.day}
                     </span>
                   )}
                 </div>
@@ -78,20 +77,13 @@ const ScheduleDetails = (props: ScheduleDetailsProps): JSX.Element => {
                   )}
                 </div>
                 <div>
-                  {session.speaker && (
+                  {session.speakers?.length && (
                     <span>
                       <FontAwesomeIcon className="icon" icon={faUser} />
-                      {session.speaker}
+                      {session.speakers.join(', ')}
                     </span>
                   )}
                 </div>
-              </div>
-              <div className="btn__area--minimal w-full">
-                <Link href="/tickets">
-                  <a className="btn--main btn--main--round btn--main--primary btn--main--big btn-right block text-center">
-                    Book tickets
-                  </a>
-                </Link>
               </div>
               <div
                 className="session-description"
@@ -106,4 +98,4 @@ const ScheduleDetails = (props: ScheduleDetailsProps): JSX.Element => {
   );
 };
 
-export default ScheduleDetails;
+export default SessionDetails;

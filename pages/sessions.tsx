@@ -5,7 +5,7 @@ import { Session } from '../interfaces/session';
 import Screen from '../components/Screen';
 import PageHeader from '../components/PageHeader';
 import { Params } from '../interfaces';
-import ScheduleDetails from '../components/ScheduleDetails';
+import SessionDetails from '../components/SessionDetails';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -36,7 +36,7 @@ const Sessions = (props: SessionsProps): JSX.Element => {
       <Screen>
         <PageHeader />
         <SessionsList sessions={sessions} />
-        <ScheduleDetails sessions={sessions} />
+        <SessionDetails sessions={sessions} />
       </Screen>
     </>
   );

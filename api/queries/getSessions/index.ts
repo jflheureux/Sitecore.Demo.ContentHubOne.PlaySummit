@@ -12,6 +12,7 @@ query {
       isPremium
       day
       sessionType
+      timeslot
       room {
         results {
           ... on Room {
@@ -48,6 +49,7 @@ export const getAllSessions = async (): Promise<{ sessions: Session[] }> => {
       speakers: session?.speakers?.results?.map((speaker) => speaker.speakerName) || [],
       imageUrl: session.imageUrl,
       day: session.day,
+      timeslot: session.timeslot,
     });
   });
 

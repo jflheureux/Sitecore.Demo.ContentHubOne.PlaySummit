@@ -11,6 +11,7 @@ export interface SessionResult {
   imageUrl?: string;
   day: number;
   sessionType?: string;
+  timeslot: string;
 }
 
 export interface AllSessionsResponse {
@@ -31,4 +32,5 @@ export interface Session {
   isPremium: boolean;
   imageUrl?: string;
   day: number;
+  timeslot: string;
 }

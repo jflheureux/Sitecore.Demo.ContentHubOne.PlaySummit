@@ -1,5 +1,4 @@
 import { Session } from '../interfaces/session';
-import { contentHubImageSrcGeneratorFromString } from '../utilities/contentHubImageLoader';
 
 type SessionRowProps = {
   session: Session;
@@ -10,35 +9,35 @@ const showDetail = (sessionId: string) => {
 };
 
 const SessionRow = (props: SessionRowProps): JSX.Element => {
-  const premiumClass = props.session.isPremium ? ' premium-session ' : '';
-  const isKeynoteSession = props.session.type?.toLowerCase() === 'keynote';
+  const session = props.session;
+  const premiumClass = session.isPremium ? ' premium-session ' : '';
+  const isKeynoteSession = session.type?.toLowerCase() === 'keynote';
   const keynoteClass = isKeynoteSession ? ' keynote-session ' : '';
-  const noSpeakerClass = props?.session?.speakers?.length ? '' : ' no-speaker ';
-  const imageStyles = props.session.imageUrl
-    ? { backgroundImage: `url("${props.session.imageUrl}")` }
-    : {};
+  const noSpeakerClass = session?.speakers?.length ? '' : ' no-speaker ';
+  const imageStyles = session.imageUrl ? { backgroundImage: `url("${session.imageUrl}")` } : {};
 
   return (
     <div
-      onClick={() => showDetail(props.session.id)}
+      onClick={() => showDetail(session.id)}
       className={'schedule-sessions' + premiumClass + keynoteClass + noSpeakerClass}
     >
       <div className={'session-image' + premiumClass + keynoteClass} style={imageStyles}>
-        {props.session.isPremium && <div className="session-type">Premium</div>}
+        {session.isPremium && <div className="session-type">Premium</div>}
         {isKeynoteSession && <div className="session-type">Keynote</div>}
       </div>
       <div className="session-content">
-        <div className="session-name">{props.session.name}</div>
-        {props?.session?.speakers?.length && (
+        <div className="session-name">{session.name}</div>
+        {session?.speakers?.length && (
           <div>
-            Speaker{props.session.speakers.length > 1 ? 's' : ''}:&nbsp;
-            {props.session.speakers.map((speaker) => (
+            Speaker{session.speakers.length > 1 ? 's' : ''}:&nbsp;
+            {session.speakers.map((speaker) => (
               <span key={speaker}>{speaker}</span>
             ))}
           </div>
         )}
-        <div>Day {props.session.day}</div>
-        <div>{props.session.room}</div>
+        <div>Day {session.day}</div>
+        <div>{session.timeslot}</div>
+        <div>{session.room}</div>
       </div>
     </div>
   );

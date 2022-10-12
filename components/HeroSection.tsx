@@ -6,8 +6,8 @@ const HeroSection = (): JSX.Element => {
     <section
       className="section__hero banner"
       style={{
-        backgroundImage:
-          "url('/api/imgproxy?url=https://playsummit.sitecoresandbox.cloud/api/public/content/b1a88e26f6a54a9ea64a5f759c5eea84?v=5aea50fb');",
+        // eslint-disable-next-line prettier/prettier
+        backgroundImage: "url('https://playsummit.sitecoresandbox.cloud/api/public/content/b1a88e26f6a54a9ea64a5f759c5eea84?v=5aea50fb')",
       }}
     >
       <div className="section__hero__container container">
@@ -21,7 +21,7 @@ const HeroSection = (): JSX.Element => {
                   overflow: 'hidden',
                   position: 'relative',
                   boxSizing: 'border-box',
-                  margin: '0px',
+                  margin: '0',
                 }}
               >
                 <div style={{ boxSizing: 'border-box', display: 'block', maxWidth: '100%' }}>
@@ -32,32 +32,32 @@ const HeroSection = (): JSX.Element => {
                     style={{
                       maxWidth: '100%',
                       display: 'block',
-                      margin: '0px',
+                      margin: '0',
                       border: 'none',
-                      padding: '0px',
+                      padding: '0',
                     }}
                   />
                 </div>
                 <img
                   alt="Logo"
                   title="Tap to go home"
-                  src="/_next/image?url=%2Fapi%2Fimgproxy%3Furl%3Dhttps%3A%2F%2Fplaysummit.sitecoresandbox.cloud%2Fapi%2Fpublic%2Fcontent%2Fc78f4095acc746a98146aaa38f57a04f%3Fv%3Dcf5688ab&amp;w=828&amp;q=75"
+                  src="/_next/image?url=https%3A%2F%2Fplaysummit.sitecoresandbox.cloud%2Fapi%2Fpublic%2Fcontent%2Fc78f4095acc746a98146aaa38f57a04f%3Fv%3Dcf5688ab&amp;w=828&amp;q=75"
                   decoding="async"
                   data-nimg="intrinsic"
                   srcSet="
-                    /_next/image?url=%2Fapi%2Fimgproxy%3Furl%3Dhttps%3A%2F%2Fplaysummit.sitecoresandbox.cloud%2Fapi%2Fpublic%2Fcontent%2Fc78f4095acc746a98146aaa38f57a04f%3Fv%3Dcf5688ab&amp;w=640&amp;q=75 1x,
-                    /_next/image?url=%2Fapi%2Fimgproxy%3Furl%3Dhttps%3A%2F%2Fplaysummit.sitecoresandbox.cloud%2Fapi%2Fpublic%2Fcontent%2Fc78f4095acc746a98146aaa38f57a04f%3Fv%3Dcf5688ab&amp;w=828&amp;q=75 2x
+                    /_next/image?url=https%3A%2F%2Fplaysummit.sitecoresandbox.cloud%2Fapi%2Fpublic%2Fcontent%2Fc78f4095acc746a98146aaa38f57a04f%3Fv%3Dcf5688ab&amp;w=640&amp;q=75 1x,
+                    /_next/image?url=https%3A%2F%2Fplaysummit.sitecoresandbox.cloud%2Fapi%2Fpublic%2Fcontent%2Fc78f4095acc746a98146aaa38f57a04f%3Fv%3Dcf5688ab&amp;w=828&amp;q=75 2x
                   "
                   style={{
                     position: 'absolute',
-                    inset: '0px',
+                    inset: '0',
                     boxSizing: 'border-box',
-                    padding: '0px',
+                    padding: '0',
                     border: 'none',
                     margin: 'auto',
                     display: 'block',
-                    width: '0px',
-                    height: '0px',
+                    width: '0',
+                    height: '0',
                     minWidth: '100%',
                     maxWidth: '100%',
                     minHeight: '100%',

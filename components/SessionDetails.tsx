@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Session } from '../interfaces/session';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {

@@ -30,9 +30,7 @@ const SessionRow = (props: SessionRowProps): JSX.Element => {
         {!!session?.speakers?.length && session.speakers.length > 0 && (
           <div>
             Speaker{session.speakers.length > 1 ? 's' : ''}:&nbsp;
-            {session.speakers.map((speaker) => (
-              <span key={speaker}>{speaker}</span>
-            ))}
+            {session.speakers.join(', ')}
           </div>
         )}
         <div>

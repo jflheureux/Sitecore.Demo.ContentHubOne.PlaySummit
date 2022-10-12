@@ -27,7 +27,7 @@ const SessionRow = (props: SessionRowProps): JSX.Element => {
       </div>
       <div className="session-content">
         <div className="session-name">{session.name}</div>
-        {session?.speakers?.length && (
+        {!!session?.speakers?.length && session.speakers.length > 0 && (
           <div>
             Speaker{session.speakers.length > 1 ? 's' : ''}:&nbsp;
             {session.speakers.map((speaker) => (
@@ -35,8 +35,9 @@ const SessionRow = (props: SessionRowProps): JSX.Element => {
             ))}
           </div>
         )}
-        <div>Day {session.day}</div>
-        <div>{session.timeslot}</div>
+        <div>
+          Day {session.day} &#8212; {session.timeslot}
+        </div>
         <div>{session.room}</div>
       </div>
     </div>

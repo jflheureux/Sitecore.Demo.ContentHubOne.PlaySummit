@@ -77,7 +77,7 @@ const SessionDetails = (props: SessionDetailsProps): JSX.Element => {
                   )}
                 </div>
                 <div>
-                  {session.speakers?.length && (
+                  {!!session?.speakers?.length && session.speakers.length > 0 && (
                     <span>
                       <FontAwesomeIcon className="icon" icon={faUser} />
                       {session.speakers.join(', ')}

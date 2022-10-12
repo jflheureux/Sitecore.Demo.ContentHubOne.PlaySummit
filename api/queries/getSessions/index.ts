@@ -3,7 +3,7 @@ import { Session, AllSessionsResponse, SessionResult } from '../../../interfaces
 
 const sessionsQuery = `
 query {
-  allSession {
+  allSession (first: 100) {
     results {
       id
       sessionName

@@ -50,7 +50,7 @@
       }
 
       .session-image {
-        @apply bg-cover bg-center w-1/2 block;
+        @apply bg-cover bg-center w-1/4 block;
 
         &.premium-session {
           .session-type {

@@ -6,8 +6,11 @@ export interface SessionResult {
   sessionName: string;
   description: string;
   room: RoomResults;
-  speakers: SpeakerResults;
+  speakers?: SpeakerResults;
   isPremium: boolean;
+  imageUrl?: string;
+  day: number;
+  sessionType?: string;
 }
 
 export interface AllSessionsResponse {
@@ -26,4 +29,6 @@ export interface Session {
   room: string;
   type: string;
   isPremium: boolean;
+  imageUrl?: string;
+  day: number;
 }

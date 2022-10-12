@@ -8,7 +8,10 @@ query {
       id
       sessionName
       description
+      imageUrl
       isPremium
+      day
+      sessionType
       room {
         results {
           ... on Room {
@@ -40,9 +43,11 @@ export const getAllSessions = async (): Promise<{ sessions: Session[] }> => {
       name: session.sessionName,
       description: session.description,
       isPremium: session.isPremium,
-      type: 'hardcoded',
-      room: session?.room?.results[0]?.roomName || 'No Room',
+      type: session.sessionType || '',
+      room: session?.room?.results[0]?.roomName || '',
       speakers: session?.speakers?.results?.map((speaker) => speaker.speakerName) || [],
+      imageUrl: session.imageUrl,
+      day: session.day,
     });
   });
 

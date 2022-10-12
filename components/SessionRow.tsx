@@ -14,18 +14,16 @@ const SessionRow = (props: SessionRowProps): JSX.Element => {
   const isKeynoteSession = props.session.type?.toLowerCase() === 'keynote';
   const keynoteClass = isKeynoteSession ? ' keynote-session ' : '';
   const noSpeakerClass = props?.session?.speakers?.length ? '' : ' no-speaker ';
+  const imageStyles = props.session.imageUrl
+    ? { backgroundImage: `url("${props.session.imageUrl}")` }
+    : {};
 
   return (
     <div
       onClick={() => showDetail(props.session.id)}
       className={'schedule-sessions' + premiumClass + keynoteClass + noSpeakerClass}
     >
-      <div
-        className={'session-image' + premiumClass + keynoteClass}
-        style={{
-          backgroundImage: `url("${contentHubImageSrcGeneratorFromString(props.session.image)}")`,
-        }}
-      >
+      <div className={'session-image' + premiumClass + keynoteClass} style={imageStyles}>
         {props.session.isPremium && <div className="session-type">Premium</div>}
         {isKeynoteSession && <div className="session-type">Keynote</div>}
       </div>
@@ -39,6 +37,7 @@ const SessionRow = (props: SessionRowProps): JSX.Element => {
             ))}
           </div>
         )}
+        <div>Day {props.session.day}</div>
         <div>{props.session.room}</div>
       </div>
     </div>
